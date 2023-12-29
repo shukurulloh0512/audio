@@ -55,6 +55,7 @@ let play_going = document.getElementById("play_going");
 let volume = document.getElementById("volume");
 let currant = document.getElementById("currant");
 let duration = document.getElementById("duration");
+let lenth = document.getElementById("lenth");
 let isPlaying = false;
 let myinterval;
 
@@ -75,7 +76,7 @@ function music_info() {
   music_img.src = musics[music_index].rasm();
   marqueeid.innerHTML = musics[music_index].nomi;
   audioo.src = musics[music_index].manzil();
-  // console.log("music_info");
+  console.log("music_info");
 }
 audioo.addEventListener("canplaythrough", () => {
   duration.innerHTML =
@@ -103,7 +104,7 @@ function play_func() {
     isPlaying = false;
     play.innerHTML = "not_started";
     audioo.pause();
-    console.log("paus");
+    console.log("");
     clearInterval(myinterval);
   } else {
     isPlaying = true;
@@ -119,7 +120,6 @@ function next() {
   } else {
     music_index = 0;
   }
-  // audioo.src = musics[music_index].manzil();
   isPlaying = false;
   music_info();
   play_func();
@@ -130,8 +130,16 @@ function prav() {
   } else {
     music_index -= 1;
   }
-  // audioo.src = musics[music_index].manzil();
   isPlaying = false;
   music_info();
   play_func();
+}
+function funcc() {
+  if (musics == audioo.length) {
+    audioo.play();
+    musics = 0;
+  } else if (musics < 0) {
+    audioo.play();
+    musics = audioo.length - 1;
+  }
 }
