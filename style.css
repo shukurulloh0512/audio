@@ -10,7 +10,10 @@ body {
   align-items: center;
   justify-content: center;
   width: 100%;
+  /* list-style: none; */
+  /* pointer-events: none; */
 }
+
 body > img {
   position: fixed;
   transform: translateY(-50%);
@@ -21,6 +24,7 @@ body > img {
   z-index: -2;
 }
 .text {
+  user-select: none;
   width: 370px;
   height: 600px;
   padding: 20px;
@@ -45,11 +49,12 @@ body > img {
   right: -80px;
   transform: rotate(-90deg);
   width: 200px;
+  user-select: none;
 }
-
 .clo {
   display: flex;
   width: 100%;
+  user-select: none;
 }
 .p1 {
   color: white;
@@ -60,21 +65,22 @@ body > img {
   display: flex;
   align-items: center;
   justify-content: center;
+  user-select: none;
 }
 .material-symbols-outlined {
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
   cursor: pointer;
-  /* font-size: 100px; */
+
   user-select: none;
 }
 
 .d_flex span {
   color: white;
-  /* font-size: 50px; */
-  /* border: 1px solid red; */
+
   border-radius: 50%;
   box-shadow: 0 0 5px black;
   font-size: 55px;
+  user-select: none;
 }
 
 .d_flex {
@@ -82,24 +88,24 @@ body > img {
   justify-content: center;
   align-items: center;
   gap: 30px;
-  /* padding-top: 5px; */
+  user-select: none;
 }
 .d_flex1 {
   display: flex;
   gap: 15px;
+  user-select: none;
 }
 .icon1 {
   font-size: 40px;
   color: white;
+  user-select: none;
 }
 
 .play_pause {
-  /* display: none; */
   font-size: 69px !important;
+  user-select: none;
 }
-/* .active_playing {
-  display: block;
-} */
+
 .time {
   display: flex;
   justify-content: space-between;
@@ -107,4 +113,36 @@ body > img {
   gap: 170px;
   padding: 0;
   font-size: 17px;
+  user-select: none;
 }
+.music_list {
+  position: absolute;
+  background-color: rgb(255, 242, 242);
+  top: 35%;
+  left: 50%;
+  padding: 10px;
+  width: 70%;
+  height: 40%;
+  transform: translate3d(-50%, -50%, 0);
+  border-radius: 15px;
+  overflow: scroll;
+  cursor: pointer;
+  user-select: none;
+  display: none;
+}
+.music_itm_img {
+  width: 35px;
+}
+.music_itm {
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  gap: 7px;
+  padding-top: 15px;
+  user-select: none;
+}
+/* [] aray */
+/* {} object */
+/* 0 namber */
+/* "" string */
+/* trua folse, bulyan */

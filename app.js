@@ -44,7 +44,54 @@ const musics = [
       return `./images/${this.nomi}.jpg`;
     },
   },
+  {
+    nomi: "Billie Eilish - Bellyache",
+    manzil: function () {
+      return `./music/${this.nomi}.mp3`;
+    },
+    rasm: function () {
+      return `./images/${this.nomi}.jpg`;
+    },
+  },
+  {
+    nomi: "Charlie Puth - Light Switch",
+    manzil: function () {
+      return `./music/${this.nomi}.mp3`;
+    },
+    rasm: function () {
+      return `./images/${this.nomi}.jpg`;
+    },
+  },
+  {
+    nomi: "Coldplay X Selena Gomez - Let Somebody Go",
+    manzil: function () {
+      return `./music/${this.nomi}.mp3`;
+    },
+    rasm: function () {
+      return `./images/${this.nomi}.jpg`;
+    },
+  },
+  {
+    nomi: "Pharrell Williams - Happy",
+    manzil: function () {
+      return `./music/${this.nomi}.mp3`;
+    },
+    rasm: function () {
+      return `./images/${this.nomi}.jpg`;
+    },
+  },
+  {
+    nomi: "Taylor Swift ft. Kendrick Lamar - Bad Blood",
+    manzil: function () {
+      return `./music/${this.nomi}.mp3`;
+    },
+    rasm: function () {
+      return `./images/${this.nomi}.jpg`;
+    },
+  },
 ];
+console.log(musics[1].nomi);
+
 let music_index = 0;
 let main_fon = document.getElementById("main_fon");
 let music_img = document.getElementById("music_img");
@@ -56,6 +103,8 @@ let volume = document.getElementById("volume");
 let currant = document.getElementById("currant");
 let duration = document.getElementById("duration");
 let lenth = document.getElementById("lenth");
+let music_list = document.getElementById("music_list");
+let takrorlash = document.getElementById("takrorlash");
 let isPlaying = false;
 let myinterval;
 
@@ -142,4 +191,53 @@ function funcc() {
     audioo.play();
     musics = audioo.length - 1;
   }
+}
+window.addEventListener("click", (event) => {
+  if (event.target != music_list && event.target != lenth) {
+    music_list.style.display = "none";
+    console.log(event.target);
+  }
+});
+function funcc() {
+  music_list.style.display = "block";
+}
+
+function tak() {
+  musics = manzil[0];
+}
+
+//////////////////////
+
+for (let i = 0; i < musics.length; i++) {
+  let music_itm = document.createElement("div");
+  let music_itm_img = document.createElement("img");
+  let music_itm_name = document.createElement("p");
+  let music_itm_play = document.createElement("span");
+  music_list.appendChild(music_itm);
+  music_itm.appendChild(music_itm_img);
+  music_itm.appendChild(music_itm_name);
+  music_itm.appendChild(music_itm_play);
+  music_itm.classList.add("music_itm");
+  music_itm_img.classList.add("music_itm_img");
+  music_itm_name.classList.add("music_itm_name");
+  music_itm_play.classList.add("material-symbols-outlined");
+  music_itm_play.innerHTML = "play_circle";
+  music_itm_name.innerHTML = musics[i].nomi;
+  music_itm_img.src = musics[i].rasm();
+  music_itm.addEventListener("click", () => {
+    music_list.querySelectorAll("span").forEach((element) => {
+      element.innerHTML = "play_circle";
+    });
+    music_list.querySelectorAll("span").forEach((element) => {
+      element.innerHTML = "play_circle";
+    });
+    if (music_index == i) {
+      play_func();
+    } else {
+      music_index = i;
+      music_info();
+      isPlaying = false;
+      play_func();
+    }
+  });
 }
